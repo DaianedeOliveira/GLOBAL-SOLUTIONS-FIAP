@@ -5,27 +5,164 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
+    <!--Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+            <link rel="stylesheet" href="index.css">
+            <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+            <script src="https://use.fontawesome.com/62e43a72a9.js"></script>
+
+
+
+
 </head>
-
-<head>
-
-
-
-</head>
-
 
 <body>
+    <div class="box p-0">
+
+<header>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/assets/imgs/tutti-low-resolution-logo-black-on-transparent-background 1.svg" alt="Logo Tutti com o símbolo de acessibilidade" width="60" 
+                class="logo d-inline-block align-text-top">
+        
+        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sobre</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Serviços
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Localização</a></li>
+                            <li><a class="dropdown-item" href="#">Denúncias</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">Contato</a>
+                    </li>
+                </ul>
+                <form class="forms d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="search btn btn-dark" type="submit">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+</header>
+
     <main>
+        <div class="conteudo col-lg-4 col-sm-12 col-xs-12 texto-1" data-aos="fade-right">
+            <p class="texto"> Focamos em <span>melhorar</span> a vida das pessoas no meio urbano  </p>
+<p class="texto-box"> Está com dificuldade de se localizar, ou de se comunicar com seu motorista? Então voce está no lugar certo! </p>
+
+<div class="button-click text-center text-lg-start">
+<button type="button" class="button-home btn btn-light">Localizar</button>
+<button type="button" class="button-home-2 btn btn-outline-light">Denunciar</button>
+</div>
+
+</div>
+
+<div class="img-home img-container" data-aos="fade-down">
+    <img src="/assets/imgs/Paper map-pana.svg" alt="Imagem de uma pessoa com uma mapa pelo celular">
+</div>
+
+<div class="sobre container col-12 col-lg-8" data-aos="fade-up">
+    <h1 class="titulo">Sobre nós</h1>
+    <p class="sobre-text "> A Tutti nasceu com a missão de ajudar as pessoas com baixa audição e limitação física que enfrentam empecilhos ao
+    utilizarem algum transporte no meio urbano. Nosso intuito é ajudá-los a se localizarem mais rápido, pois pessoas que tem
+    baixa audição e/ou falam a lingua brasileira de sinais, possuem mais dificuldades de se comunicar na cidade, por exemplo, saber em que lugar está, em que rua fica x lugar... Além disso, aqui na Tutti, também tem um espaço para
+    denúncias que essas pessoas podem usufruir ao denunciar algum lugar que não atende o público pcd, ruas esburacadas,
+    calçadas estreitas, semáforo com problema em que o tempo de duração para a passagem do pedestre tivesse muito curta,
+    etc. </p>
+
+    </div>
 
 
 
 
     </main>
 
+    <footer class="footer-distributed">
     
-    <footer>
+        <div class="footer-left">
+    
+        
+        <img src="/assets/imgs/tutti-low-resolution-logo-black-on-transparent-background 1.svg"
+                        alt="Logo Tutti com o símbolo de acessibilidade" width="100">
 
+    
+            <p class="footer-links">
+                <a href="#">Início</a>
+                ·
+                <a href="#">Sobre</a>
+                ·
+                <a href="#">Serviços</a>
+                ·
+                <a href="#">Contato</a>
+                ·
+    
+            <div class="footer-icons">
+    
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+    
+            </div>
+    
+        </div>
+    
+        
+        <div class="footer-right">
+                        <p>Fale Conosco</p>
+
+            <form action="#" method="post">
+    
+                <input type="text" name="email" placeholder="Email">
+                <textarea name="message" placeholder="Mensagem"></textarea>
+                <button>Enviar</button>
+    
+            </form>
+    
+        </div>
 
     </footer>
+
+
+
+    </div>
+
+    <!--JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
+
+
+            <!--animaçção-->
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 1000,
+    });
+</script>
+
 </body>
 </html>
