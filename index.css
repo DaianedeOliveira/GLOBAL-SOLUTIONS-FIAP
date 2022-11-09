@@ -7,35 +7,36 @@
     --branco-p: #EFF2F9;
 }
 
-*{
+* {
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
 }
 
-body{
+body {
     background-color: #252B33;
 
-    
+
 }
 
 ul li {
     margin: 5px;
 }
-.navbar-nav{
+
+.navbar-nav {
     margin-left: 350px;
     padding: 2px;
 }
 
-.navbar-nav a{
+.navbar-nav a {
     color: #252B33;
     font-weight: 900;
 }
 
-a:hover{
+a:hover {
     color: #252B33;
     font-weight: 900;
 
-    
+
 }
 
 .logo{
@@ -371,4 +372,35 @@ padding-top: 29px;
 
 
 
+}
+
+@media only screen and (max-width:800px) {
+    .img-home, .wave{
+    opacity: 0;
+display: none;
+}
+
+.sobre{
+    width: 400px;
+    height: auto;
+    margin-top: 100px;
+}
+
+.card-l{
+    display: flex;
+    width:55%;
+}
+
+
+}
+
+/* scroll */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #8d8d8d;
+    border-radius: 2px;
 }
