@@ -1,145 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-    <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/pagina.html/index.css">
-    <link rel="stylesheet" href="index.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://use.fontawesome.com/62e43a72a9.js"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-
-
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/servicos.css">
 </head>
+  <body>
+    <header>
 
-<body>
-    <div class="box p-0">
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="/assets/imgs/tutti-low-resolution-logo-black-on-transparent-background 1.svg" alt="Logo Tutti com o símbolo de acessibilidade" width="60" 
+                    class="logo d-inline-block align-text-top">
+            
+            </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sobre</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Serviços
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Localização</a></li>
+                                <li><a class="dropdown-item" href="#">Denúncias</a></li>
+    
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Contato</a>
+                        </li>
+                    </ul>
+                    <form class="forms d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="search btn btn-dark" type="submit">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    
 
-        <header>
-            <nav class="navbar navbar-expand-lg bg-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
-                        <img src="/assets/imgs/tutti-low-resolution-logo-black-on-transparent-background 1.svg"
-                            alt="Logo Tutti com o símbolo de acessibilidade" width="60"
-                            class="logo d-inline-block align-text-top">
+    </header>
 
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Início</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Sobre</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Serviços
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item"
-                                            href="/assets/pagina.html/serviços.html">Localização</a></li>
-                                    <li><a class="dropdown-item" href="/assets/pagina.html/serviços2.html">Denúncias</a>
-                                    </li>
 
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link">Contato</a>
-                            </li>
-                        </ul>
-                        <form class="forms d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="search btn btn-dark" type="submit">Buscar</button>
-                        </form>
+    <main>
+        <section class="localizacao container mt-5 mb-5">
+            <h1 class="mb-5"><span>Localização</span></h1>
+
+            <iframe src="https://facilmap.org/H6L96aEV9dGzU9#15/-23.5378/-46.3323/Mpnk/r298340%20to%20r298085%20by%20pedestrian%20wheelchair"></iframe>
+        </section>
+
+        <section class="denuncias pt-5">
+            <div class="container">
+                <div class="d-flex justify-content-around mt-5">
+                    <div>
+                        <img src="https://i.imgur.com/yH9LbrV.png" alt="">
                     </div>
-                </div>
-            </nav>
-
-
-        </header>
-
-
-        <main>
-
-
-
-
-
-
-        </main>
-
-
-        <footer class="footer-distributed">
-
-            <div class="footer-left">
-
-
-                <img src="/assets/imgs/tutti-low-resolution-logo-black-on-transparent-background 1.svg"
-                    alt="Logo Tutti com o símbolo de acessibilidade" width="100">
-
-
-                <p class="footer-links">
-                    <a href="#">Início</a>
-                    ·
-                    <a href="#">Sobre</a>
-                    ·
-                    <a href="#">Serviços</a>
-                    ·
-                    <a href="#">Contato</a>
-                    ·
-
-                <div class="footer-icons">
-
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-github"></i></a>
-
+                    <div>
+                        <h2 class="mb-5"><span>Denúncias</span></h2>
+                        <form action="" class="d-flex flex-column">
+                            <fieldset class="mb-3">
+                                Preencha o formulário para envio da denúncia
+                            </fieldset>
+    
+                            <label for="Nome">Nome:</label>
+                            <input type="text"/>
+                            <label for="email">E-mail:</label>
+                            <input type="email"/>
+                            <label for="local">Local:</label>
+                            <input type="text">
+                            <label for="descricao">Descrição:</label>
+                            <textarea></textarea>
+    
+                            <button>Enviar</button>
+                        </form> 
+    
+                    </div>
+                    
                 </div>
 
             </div>
+        </section>
+
+        <section class="contato d-flex container justify-content-around mt-5">
+            <div class="contato-meios">
+                <h1><span>Contato</span></h1>
+
+                <div class="d-flex justify-content-around mt-5">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <i class="fa-solid fa-phone"></i>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+            </div>
+
+            <div class="redes">
+                <h1><span>Redes Sociais</span></h1>
+
+                <div class="d-flex justify-content-around mt-5">
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                </div>
+            </div>
+        </section>    
+
+    </main>
+
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
 
 
-            <div class="footer-right">
-                <p>Fale Conosco</p>
+            <img src="/assets/imgs/tutti-low-resolution-logo-black-on-transparent-background 1.svg"
+                alt="Logo Tutti com o símbolo de acessibilidade" width="100">
 
-                <form action="#" method="post">
 
-                    <input type="text" name="email" placeholder="Email">
-                    <textarea name="message" placeholder="Mensagem"></textarea>
-                    <button>Enviar</button>
+            <p class="footer-links">
+                <a href="#">Início</a>
+                ·
+                <a href="#">Sobre</a>
+                ·
+                <a href="#">Serviços</a>
+                ·
+                <a href="#">Contato</a>
+                ·
 
-                </form>
+            <div class="footer-icons">
+
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
 
             </div>
 
-        </footer>
+        </div>
 
 
+        <div class="footer-right">
+            <p>Fale Conosco</p>
 
-    </div>
+            <form action="#" method="post">
 
-    <!--JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-        crossorigin="anonymous"></script>
+                <input type="text" name="email" placeholder="Email">
+                <textarea name="message" placeholder="Mensagem"></textarea>
+                <button>Enviar</button>
 
+            </form>
 
-    <!--animaçção-->
+        </div>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -148,7 +175,5 @@
             duration: 1000,
         });
     </script>
-
 </body>
-
 </html>

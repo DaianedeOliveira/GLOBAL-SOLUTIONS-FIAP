@@ -14,8 +14,6 @@
 
 body{
     background-color: #252B33;
-
-    
 }
 
 ul li {
@@ -62,6 +60,9 @@ span{
 }
 
 .conteudo{
+    text-align: start;
+    width: 40vw;
+    aspect-ratio: 1;
     margin-left: 100px;
     margin-top: 150px;
 
@@ -97,9 +98,8 @@ font-weight: 900;
 }
 
 .img-home{
-    width: 40%;
-    margin-left: 600px;
-    margin-top: -250px;
+    width: 30vw;
+    aspect-ratio: 1;
     position: relative;
 }
 
