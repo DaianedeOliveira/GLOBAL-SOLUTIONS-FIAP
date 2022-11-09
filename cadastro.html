@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/socket.io-client@4"></script>
+  <script src="https://unpkg.com/facilmap-client@3"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+    integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+    integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+  <!-- <link rel="stylesheet" href="index.css"> -->
+  <!-- <script src="index.js"></script> -->
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Button used to open the contact form - fixed at the bottom of the page */
+    .open-button {
+      background-color: #555;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      opacity: 0.8;
+      position: fixed;
+      bottom: 23px;
+      right: 28px;
+      width: 280px;
+    }
+
+    /* The popup form - hidden by default */
+    .form-popup {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      right: 15px;
+      border: 3px solid #f1f1f1;
+      z-index: 9;
+    }
+
+    /* Add styles to the form container */
+    .form-container {
+      max-width: 300px;
+      padding: 10px;
+      background-color: white;
+    }
+
+    /* Full-width input fields */
+    .form-container input[type=text],
+    .form-container input[type=password] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    /* When the inputs get focus, do something */
+    .form-container input[type=text]:focus,
+    .form-container input[type=password]:focus {
+      background-color: #ddd;
+      outline: none;
+    }
+
+    /* Set a style for the submit/login button */
+    .form-container .btn {
+      background-color: #04AA6D;
+      color: white;
+      padding: 16px 20px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 10px;
+      opacity: 0.8;
+    }
+
+    /* Add a red background color to the cancel button */
+    .form-container .cancel {
+      background-color: red;
+    }
+
+    /* Add some hover effects to buttons */
+    .form-container .btn:hover,
+    .open-button:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+
+    <div class="container my-5">
+      <div class="text-center mb-5">
+        <h2 class="my-1">Prencha os seus dados para cadastro</h2>
+      </div>
+
+      <p class="p-3 conteudo text-light alterar">Dados da conta
+      </p>
+
+      <form method="post" id="dados-conta" action="signup">
+
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-5">
+            <div class="form-group ">
+              <label for="nome" class="titulos">Nome</label>
+              <input type="text" class="form-control alterar" id="nome" name="nome" value="" placeholder="Seu nome"
+                required>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-3">
+            <div class="form-group">
+              <label for="email" class="titulos alterar">Email</label>
+              <input type="email" class="form-control alterar" id="email" name="email" value=""
+                placeholder="email@traveller.com.br" required>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-2">
+            <div class="form-group">
+              <label for="cpf" class="titulos">CPF</label>
+              <div class="input-group mb-2">
+                <input type="text" class="form-control alterar" id="cpf" name="cpf" value="" placeholder="Seu CPF">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-12 col-md-2">
+            <div class="form-group">
+              <label for="telefone" class="titulos">Celular</label>
+              <input class="form-control alterar" id="telefone" name="telefone" value="" placeholder="(XX) 98765-4321"
+                required>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 col-sm-12 col-md-2">
+            <div class="form-group">
+              <label for="data_nascimento" class="titulos">Data de Nascimento</label>
+              <input type="date" class="form-control alterar" id="data_nascimento" name="data_nascimento" value=""
+                required>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-2">
+            <div class="form-group">
+              <label for="cep" class="titulos">CEP</label>
+              <input class="form-control alterar" id="cep" name="cep" value="" placeholder="12345-123" required>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-1">
+            <div class="form-group">
+              <label for="estado" class="titulos">Estado</label>
+              <input class="form-control alterar" id="estado" name="estado" value="" placeholder="UF" required>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-4">
+            <div class="form-group">
+              <label for="cidade" class="titulos">Cidade</label>
+              <input class="form-control alterar" id="cidade" name="cidade" value="" placeholder="Sua cidade" required>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-3">
+            <div class="form-group">
+              <label for="bairro" class="titulos">Bairro</label>
+              <input class="form-control alterar" id="bairro" name="bairro" value="" placeholder="Seu bairro" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-12 col-sm-12 col-md-3">
+            <div class="form-group">
+              <label for="logradouro" class="titulos">Logradouro</label>
+              <input class="form-control alterar" id="logradouro" name="logradouro" value=""
+                placeholder="Seu logradouro" required>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-1">
+            <div class="form-group">
+              <label for="numero" class="titulos">Numero</label>
+              <input class="form-control alterar" id="numero" name="numero" value="" placeholder="123" required>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-2">
+            <div class="form-group">
+              <label for="complemento" class="titulos">Complemento</label>
+              <input class="form-control alterar" id="complemento" name="complemento" value="" placeholder="apto">
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-3	">
+            <div class="form-group disabled">
+              <label for="senha" class="titulos">Senha</label>
+              <div class="input-group mb-2">
+                <input type="password" class="form-control alterar" id="senha" name="senha"
+                  placeholder="Sua nova senha">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-3">
+            <div class="form-group disabled">
+              <label for="confirmar_senha" class="titulos">Confirmar Senha</label>
+              <div class="input-group mb-2">
+                <input type="password" class="form-control alterar" id="confirma_senha" name="confirma_senha"
+                  placeholder="Confirmar sua nova senha">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn gravar" id="gravar">Gravar Alteracoes</button>
+        </div>
+
+      </form>
+
+      <!-- <iframe style="height: 500px; width: 100%; border: none;" src="https://facilmap.org/mymap"></iframe> -->
+      <h2>Popup Form</h2>
+      <p>Click on the button at the bottom of this page to open the login form.</p>
+      <p>Note that the button and the form is fixed - they will always be positioned to the bottom of the browser
+        window.</p>
+
+      <button class="open-button" onclick="openForm()">Open Form</button>
+
+      <div class="form-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+          <h1>Login</h1>
+
+          <label for="email"><b>Email</b></label>
+          <input type="text" id="email" placeholder="Enter Email" name="email" required>
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+
+          <button type="submit" class="btn">Login</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+
+      <button onclick="addCircle();">Adicionar circulo</button>
+
+
+      <div id="map" style="width: 600px; height: 400px;"></div>
+      <script>
+        const map = L.map('map').setView([51.505, -0.09], 13);
+
+        const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        var pontoSalvo = localStorage.getItem('pontoMapa')
+        let pontoMapaLS = JSON.parse(pontoSalvo);
+
+        var markerSaved;
+
+        markerSaved = L.marker([pontoMapaLS.latitude, pontoMapaLS.longitude]).addTo(map);
+
+        markerSaved.on('mouseover', function (e) {
+          //open popup;
+          var popup = L.popup()
+            .setLatLng(e.latlng)
+            .setContent(
+              "<label for='pontoSalvo'>Tipo de ponto: </label>" +
+              "<label for='pontoValor'>" + pontoMapaLS.ponto + "</label>" +
+              "<br><label for='relatorioSalvo'>Tipo de relatório: </label>" +
+              "<label for='relatorioValor'> " + pontoMapaLS.relatorio + "</label>" +
+              "<br><label for='descricaoSalvo'>Descrição: </label>" +
+              "<label for='descricaoValor'>" + pontoMapaLS.descricao + "</label>"
+            )
+            .openOn(map);
+        });
+
+        var marker;
+
+        map.on('click', function onClick(e) {
+          if (marker)
+            map.removeLayer(marker);
+          console.log(e.latlng); // e is an event object (MouseEvent in this case)
+          marker = L.marker(e.latlng).addTo(map);
+          console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng);
+          var latitude = "" + e.latlng.lat;
+          var longitude = "" + e.latlng.lng;
+          // console.log(latitude);
+          // salvarPonto(latitude, longitude);var popup = e.target.getPopup();
+
+
+
+          marker.bindPopup(
+            "<label for='ponto'>Tipo de ponto: </label><select name='ponto' id='ponto'>" +
+            "<option value='rua'>Rua</option>" +
+            "<option value='calcada'>Calçada</option>" +
+            "<option value='escada'>Escada</option>" +
+            "<option value='semaforo'>Semáforo</option>" +
+            "<option value='estacionamento'>estacionamento</option>" +
+            "</select>" +
+            "<br><label for='relatorio'>Tipo de relatório: </label><select name='relatorio' id='relatorio'>" +
+            "<option value='atencao'>Atenção</option>" +
+            "<option value='acessibilidade'>Acessibilidade</option>" +
+            "<option value='eventual'>Eventual</option>" +
+            "</select>" +
+            "<br><label for='descricao'>Descrição: </label><input type='text' id='descricao'>" +
+            "<br><button onclick='salvarPonto(" + latitude + "," + longitude + ");'> Salvar </button>"
+          ).openPopup();
+
+          document.getElementById("complemento").value = "teste";
+
+          openForm()
+        });
+
+        function salvarPonto(latitude, longitude) {
+          // alert(latitude + " " + longitude);
+          // var marker = L.marker([51.50884429172705, -0.06557464599609376]).addTo(map);
+          var marker = L.marker([latitude, longitude]).addTo(map);
+          var ponto = document.getElementById("ponto").value;
+          var relatorio = document.getElementById("relatorio").value;
+          var descricao = document.getElementById("descricao").value;
+
+          let pontoMapa = {
+            ponto: ponto,
+            relatorio: relatorio,
+            descricao: descricao,
+            latitude: latitude,
+            longitude: longitude
+          };
+
+          // localStorage.setItem("pontoMapa", JSON.stringify(pontoMapa));
+          localStorage.setItem("pontoMapa" + latitude + longitude, JSON.stringify(pontoMapa));
+
+          var retrievedObject = localStorage.getItem('pontoMapa');
+          console.log('retrievedObject: ', JSON.parse(retrievedObject));
+
+          // let pontoMapaLS = localStorage.getItem("pontoMapa");
+
+          let pontoMapaLS = JSON.parse(retrievedObject);
+
+          alert(pontoMapaLS.ponto);
+
+          // alert(pontoMapa.ponto)
+          // alert(pontoMapa.relatorio)
+          // alert(pontoMapa.descricao);
+        }
+
+        function criarPonto() {}
+
+        function chamaPopup() {
+
+        }
+
+        function addCircle() {
+          var circle = L.circle([51.508, -0.11], {
+            color: 'red',
+            fillColor: '#f03',
+            fillOpacity: 0.5,
+            radius: 500
+          }).addTo(map);
+
+          var marker = L.marker([51.5, -0.09]).addTo(map);
+        }
+
+        function openForm() {
+          document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+      </script>
+
+
+    </div>
+
+
+  </main>
+
+
+  <footer>
+
+
+  </footer>
+</body>
+
+</html>
