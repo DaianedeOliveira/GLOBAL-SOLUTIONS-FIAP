@@ -19,6 +19,20 @@ h1{
     font-weight: 900;
 }
 
+@media only screen and (max-width:767px) {
+    
+    .contato i{
+        font-size: 18px!important;
+    }
+    .denuncias img{
+        display: none;
+    }
+    .denuncias form{
+        margin-left: -80px;
+        margin-bottom: 15px;
+    }
+}
+
 .localizacao h1{
     color: var(--branco-p);
 }
