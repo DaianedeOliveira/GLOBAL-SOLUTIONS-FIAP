@@ -117,8 +117,8 @@ box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 
 padding-left: 22px;
     padding-right: 20px;
     font-size: 15px;
-    width: 53vw;
-    height: 44vh;
+    width: 56vw;
+    height: auto;
     border-radius: 15px;
 
 }
@@ -379,7 +379,7 @@ padding-top: 29px;
 
 }
 
-@media only screen and (max-width:800px) {
+/* @media only screen and (max-width:800px) {
     .img-home, .wave{
     opacity: 0;
 display: none;
@@ -389,17 +389,17 @@ display: none;
     width: 400px;
     height: auto;
     margin-top: 100px;
-}
+} 
 
 /* .card-l{
     display: flex;
     width:55%;
-} */
+} 
 
 
-}
+}*/
 
-@media only screen and (max-width:1100px) {
+/* @media only screen and (max-width:1100px) {
     .img-home, .wave{
     opacity: 0;
 display: none;
@@ -412,7 +412,7 @@ display: none;
 }
 
 
-}
+} */
 
 /* scroll */
 ::-webkit-scrollbar {
