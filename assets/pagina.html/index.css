@@ -287,8 +287,8 @@ section {
 .localizacao{
     background-color: transparent;
     display: inline-block;
-    justify-content: center;
-    margin-left: 50px;
+    /* justify-content: center;
+    margin-left: 50px; */
     
 }
 
