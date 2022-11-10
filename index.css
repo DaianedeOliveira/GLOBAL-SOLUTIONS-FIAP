@@ -340,7 +340,7 @@ section {
     }
 }
 
-.serviços-section{
+.servicos-section{
     height: 50vh;
     margin-top: 50px;
 background-color: #EFF2F9;
@@ -363,7 +363,7 @@ padding-top: 29px;
         transition: all 0.5s;
 }
 
-.serviços-t{
+.servicos-t{
     color: #151516;
     font-weight: bolder;
         font-size: 30px;
